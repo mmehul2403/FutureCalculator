@@ -1,0 +1,52 @@
+﻿@model FutureValueCalc;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Future Calculator</h1>
+</div>
+<div>
+    <form method="post" asp-action="Index">
+        <div asp-validation-summary="All"></div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <lable>Monthly Investment:</lable>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" asp-for="monthlyInvestment" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <lable>Yearly Intrest Rate:</lable>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" asp-for="yearlyIntrestRate" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <lable>Number of Years:</lable>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" asp-for="numberOfYears" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <lable>Future Value:</lable>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" value="@ViewBag.FutureValue" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="submit" value="Calculate">
+                <a asp-action="Index" asp-controller="Home">Clear</a>
+            </div>
+        </div>
+    </form>
+</div>
